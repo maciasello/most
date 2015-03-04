@@ -234,6 +234,14 @@ Stream.prototype.tap = function(f) {
 	return transform.tap(f, this);
 };
 
+var transduce = require('./lib/combinator/transduce');
+
+exports.transduce = transduce.transduce;
+
+Stream.prototype.transduce = function(transducer) {
+	return transduce.transduce(transducer, this);
+};
+
 //-----------------------------------------------------------------------
 // FlatMapping
 
